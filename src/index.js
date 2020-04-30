@@ -110,8 +110,13 @@ class Game extends React.Component {
     if (winner) {
       status = "Winner is " + winner;
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O")
-      if (current.position.row !== null) { status += "\nCurrent position: " + "(" + current.position.row + "," + current.position.column + ")"; }
+      const nullable = (element) => element === null;
+      if (current.squares.some(nullable)) {
+        status = "Next player: " + (this.state.xIsNext ? "X" : "O")
+        if (current.position.row !== null) { status += "\nCurrent position: " + "(" + current.position.row + "," + current.position.column + ")"; }
+      } else {
+        status = "There is a standoff."
+      }
     }
 
     return (
