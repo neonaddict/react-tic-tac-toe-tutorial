@@ -31,9 +31,14 @@ body {
     text-align: center;
     width: 34px;
   }
+
+  .highlight {
+    background: rgb(255, 255, 28);
+  }
   
   .square:focus {
     outline: none;
+    background: rgb(255, 110, 58);
   }
   
   .kbd-navigation .square:focus {
